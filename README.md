@@ -2,7 +2,7 @@
 
 #### Overview
 
-Setting up a Wiki JS app on Heroku, with individual pages within the app pulled from Github, is [documented by Requarks](https://docs.requarks.io/wiki/), which created Wiki JS, but I found it confusing to follow. This summary attempts to remove some of the mystery of what finally worked for me.
+Setting up a Wiki JS app on Heroku, with individual pages within the app pulled from Github, is [documented by Requarks](https://docs.requarks.io/wiki/), but I found it confusing to follow. This summary attempts to remove some of the mystery of what finally worked for me. Once you get this working correctly, the beauty of the OAuth app connection between your Github repository and your Heroku app, and your keeping your commits in Github in synch with a local copy of your project repository, means that you can initiate content editing from either your own project - and then push it to Github which will synch with the Heroku app - or make the edits inside the Heroku app - in which case it will be fetched by your Github repository, and can then be pulled down to the synched repo on your local machine. 
 
 #### Setup
 
