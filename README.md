@@ -60,7 +60,7 @@ vevsxhj61eem9pyjy40o
 Client Secret
 9gj1lj71u7205w1wl4xchhow3b1brrezbpnbh4bf
 ```
-SIDE NOTE here: The [Requarks documentation](https://docs.requarks.io/wiki/install/installation/authentication) suggests that you copy both Client ID and Client Secret as will need to past them into your "config.yaml." 
+SIDE NOTE: The [Requarks documentation](https://docs.requarks.io/wiki/install/installation/authentication) suggests that you copy both Client ID and Client Secret as will need to past them into your "config.yml." 
 
 > Under the auth section of your config.yml, you can now enter the required info:
 >
@@ -70,7 +70,7 @@ github:
     clientId: GITHUB_CLIENT_ID
     clientSecret: GITHUB_CLIENT_SECRET
 ```
-This might make sense if you fetch a local copy of the project comprising your deployed app off Heroku, in which case you could modify the config.yaml file but I don't see a need to do that here. 
+This might make sense if you fetch a local copy of the project comprising your deployed app off Heroku, in which case you could add this info and push the updated file (config.yml) to your Heroku app. But I don't see a need to do that here and I could not get that to work. 
 
 9.	Go to the "Settings" tab in your Heroku app's dashboard and click the "Reveal Config Vars" button. Notice that it is an array of key-value pairs with default values (except whichever one you may have changed during the deploy step). Here, you need to make several changes:
 
