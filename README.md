@@ -34,7 +34,7 @@ $ git push origin master
 
 6.	Now that you are on a Heroku deploy page, you will walk through a few steps to create the Wiki.JS app. Name it the same as your Github repo - I am using "testwikijs" - and make note of the fact that an mLab MongoDB add-on is provisioned (Sandbox version - Free) and that certain configuration variables ("config vars") are set. You can modify these later, but you may want to change the WIKI_TITLE to something other than "Wiki" (I changed mine to "Wiki.js Test using Heroku-Github OAuth pipeline").  Also note that in the process of creating the app, and configuring its environment, you will see an autoscrolled output box. This is just taking the deploy process built into the "Deploy to Heroku" button step by step. For now, click the button that says "Manage App" to view that dashboard.
 
-7. Brief detour here ... on the dashboard, click the "More" tab (in the upper right, next to the "Open app" tab) and choose "View logs". You will see info like this
+7. Brief detour here. On the dashboard, click the "More" tab (in the upper right, next to the "Open app" tab) and choose "View logs". You will see info like this:
 
 ```
 app[web.1]: [32minfo[39m: [AGENT] Checking Git repository...
@@ -49,9 +49,9 @@ app[web.1]:    [32m"remote: Invalid username or password.\nfatal: Authentication
 app[web.1]:   stdout: [32m''[39m }
 ```
  
-This indicates that your Wiki.js app, while deployed, cannot yet fetch articles (markdown files) from the Github repository that you will set up to manage (and persistently) your wiki. Because dynos on Heroku's free tier are shared and spin up only when a GET request is made to the URL for your Heroku app), any changes you make to your wiki ***from inside your Heroku app*** will disappear the next time you launch it. For the content to persist, it must be pulled from your Github repo. 
+This indicates that your Wiki.js app, while deployed, cannot yet fetch articles (markdown files) from the Github repository that stores the content source files for your wiki. Because dynos on Heroku's free tier are shared and spin up only when needed, content changes made to your wiki ***from inside your Heroku app*** that are not automatically pushed or pulled from an external source will disappear the next time you launch it. That external source, in this case, will be your Github respository.
 
-8. Go to the developer settings page of your Github account (https://github.com/settings/developers) and create a new OAuth app. This is what will give you a connection between the markdown files you push to your Github repo and your WikiJS app on Heroku. Give the OAuth app an "Application name" that is the same as your repo (testwikijs). Set the "Homepage URL" to that of your Heroku app (https://testwikijs.herokuapp.com). Make sure to specify "Authorization callback URL" as `https://testwikijs.herokuapp.com/login/github/callback`. Now, click on the "Register application" (green) button. This will return you to the OAuth app page for your newly registered application, which includes an auto-generated "Client ID" (20 alphanumeric (lower case) characters) and "Client Secret" (20 alphanumeric (lower case) digits). 
+8. Go to the developer settings page of your Github account (https://github.com/settings/developers) and create a new OAuth app. This is what ensures a connection between the markdown files in your Github repository and your WikiJS app on Heroku. Give the OAuth app an "Application name" that is the same as your repository. Set the "Homepage URL" to that of your Heroku app (e.g., https://testwikijs.herokuapp.com). Make sure to specify "Authorization callback URL" accordingly - in this case, `https://testwikijs.herokuapp.com/login/github/callback`. Now, click on the "Register application" button. Your OAuth app is now newly registered, and includes an auto-generated "Client ID" (20 alphanumeric (lower case) characters) and "Client Secret" (20 alphanumeric (lower case) digits). 
 
 #### [RANDOMIZED](https://www.random.org/strings/) EXAMPLE:
 ```
